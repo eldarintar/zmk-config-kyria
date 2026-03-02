@@ -23,5 +23,8 @@ include:
     shield: kyria_rev3_left
   - board: nice_nano_v2
     shield: kyria_rev3_right
+<<<<<<< HEAD
   - board: nice_nano_v2
     shield: settings_reset
+=======
+>>>>>>> c652363 (restauration)
