@@ -32,7 +32,7 @@
         layer_2 {
             bindings = <
                 &kp NUM_LOCK  &kp NUM_LOCK  &kp LC(LA(HOME))  &kp LC(LA(UP))  &kp LC(LA(END))  &none          &kp K_CALC  &kp KP7  &kp KP8  &kp KP9  &kp KP_MULTIPLY  &kp KP_SLASH
-                &kp NUM_LOCK  &kp LC(A) &kp LC(LA(LEFT)) ( &kp LC(LA(DOWN))  &kp KP_MULTIPLY(RIGHT) &none      &kp EQUAL &kp KP4  &kp KP5  &kp KP6  &kp KP_PLUS  &kp KP_MINUS
+                &kp NUM_LOCK  &kp LC(A) &kp LC(LA(LEFT)) &kp LC(LA(DOWN))  &kp LC(LA(RIGHT)) &none      &kp EQUAL &kp KP4  &kp KP5  &kp KP6  &kp KP_PLUS  &kp KP_MINUS
                 &none  &none &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp LA(F4)  &none  &none                   &none  &kp LC(RBKT)  &kp RA(RBKT)  &kp KP1  &kp KP2  &kp KP3  &kp G  &kp MINUS
                 &kp LC(SLASH)  &kp LC(LBKT)  &kp LSHIFT  &kp BSPC  &kp DEL                                  &kp SPACE   &kp RET  &kp RA(SPACE)  &kp KP0  &kp KP_DOT
             >;
