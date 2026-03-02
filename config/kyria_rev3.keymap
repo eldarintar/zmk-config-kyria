@@ -53,7 +53,7 @@
             bindings = <
                 &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT
                 &lt 3 RBKT  &kp A  &kp S  &kp D  &kp F  &kp G                               &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp SQT
-                &kp LCTRL  &lt 2 Z  &kp X  &kp C  &kp V  &kp B  &kp LG(RBKT)  &kp ESC       &mkp MB2  &kp LG(Q)  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &mt RCTRL NUHS
+                &kp LCTRL  &lt 2 Z  &kp X  &kp C  &kp V  &kp B  &kp LG(RBKT)  &kp ESC      &mkp MB2  &kp LG(Q)  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH &mt RCTRL NUHS
                 &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                           &mkp MB1   &kp RET  &lt 1 SPACE  &kp RALT  &mo 4
             >;
         };
