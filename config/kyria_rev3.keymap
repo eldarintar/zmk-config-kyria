@@ -70,7 +70,7 @@
             bindings = <
                 &kp TAB  &kp PG_UP  &kp HOME  &kp UP  &kp END  &kp PG_DN                &kp GRAVE  &kp N7  &kp N8  &kp N9  &kp N0  &macro_1
                 &none  &kp LC(LEFT)  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LC(RIGHT)       &none  &kp N4  &kp N5  &kp N6  &kp MINUS  &macro_0
-                &kp LCTRL  &none  &none  &none  &none  &none  &kp PAUSE                 &kp INS  &none  &none  &kp N1  &kp N2  &kp N3  &kp EQUAL  &kp APP
+                &kp LCTRL  &none  &none  &none  &none  &none  &kp PAUSE_BREAK                 &kp INS  &none  &none  &kp N1  &kp N2  &kp N3  &kp EQUAL  &kp K_APP
                 &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                       &none  &kp RALT  &none  &none  &none
             >;
 
