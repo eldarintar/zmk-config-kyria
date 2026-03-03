@@ -41,40 +41,53 @@
         };
     };
 
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "Default Layer";
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
-// |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | LAYER 1 | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
-//                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+        layer_0 {
             bindings = <
                 &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT
                 &lt 3 RBKT  &kp A  &kp S  &kp D  &kp F  &kp G                               &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp SQT
-                &kp LCTRL &lt 2 Z &kp X &kp C &kp V &kp B &kp LG(RBKT) &kp ESC &mkp MB2 &none &none &none &none &none &none &none
-                     &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
+                &kp LCTRL  &lt 2 Z  &kp X  &kp C  &kp V  &kp B  &kp LG(RBKT)  &kp ESC       &mkp MB2  &kp LG(Q)  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &mt RCTRL NUHS
+                &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                           &mkp MB1   &kp RET  &lt 1 SPACE  &kp RALT  &mo 4
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
-        function_layer {
-            display-name = "Function Layer";
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |       |      |BT_CLR|BTSEL0|BTSEL1|BTSEL2|                                         |      |      |      |      |      |      |
-// |       |      |      |BTSEL3|BTSEL4|      |                                         |      |      |      |      |      |      |
-// |       |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
-//                       |      |      |      |      |      |      |      |      |      |      |      |      |
-            bindings = <
-    &trans &trans &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2              &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans     &bt BT_SEL 3 &bt BT_SEL 4 &trans                    &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans &trans &trans &trans
-                         &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans
-            >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        layer_1 {
+            bindings = <
+                &kp TAB  &kp PG_UP  &kp HOME  &kp UP  &kp END  &kp PG_DN                &kp GRAVE  &kp N7  &kp N8  &kp N9  &kp N0  &macro_1
+                &none  &kp LC(LEFT)  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LC(RIGHT)       &none  &kp N4  &kp N5  &kp N6  &kp MINUS  &macro_0
+                &kp LCTRL  &none  &none  &none  &none  &none  &kp PAUSE                 &kp INS  &none  &none  &kp N1  &kp N2  &kp N3  &kp EQUAL  &kp APP
+                &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                       &none  &kp RALT  &none  &none  &none
+            >;
+        };
+
+        layer_2 {
+            bindings = <
+                &kp NUM_LOCK  &kp NUM_LOCK  &kp LC(LA(HOME))  &kp LC(LA(UP))  &kp LC(LA(END))  &none          &kp K_CALC  &kp KP7  &kp KP8  &kp KP9  &kp KP_MULTIPLY  &kp KP_SLASH
+                &kp NUM_LOCK  &kp LC(A) &kp LC(LA(LEFT)) ( &kp LC(LA(DOWN))  &kp KP_MULTIPLY(RIGHT) &none      &kp EQUAL &kp KP4  &kp KP5  &kp KP6  &kp KP_PLUS  &kp KP_MINUS
+                &none  &none &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp LA(F4)  &none  &none                   &none  &kp LC(RBKT)  &kp RA(RBKT)  &kp KP1  &kp KP2  &kp KP3  &kp G  &kp MINUS
+                &kp LC(SLASH)  &kp LC(LBKT)  &kp LSHIFT  &kp BSPC  &kp DEL                                  &kp SPACE   &kp RET  &kp RA(SPACE)  &kp KP0  &kp KP_DOT
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+                &kp LG(PG_UP)  &kp F9  &kp F10  &kp F11  &kp F12  &none                 &kp MINUS  &kp KP7  &kp KP8  &kp KP9  &kp KP_MULTIPLY  &kp KP_SLASH
+                &none  &kp F5   &kp F6  &kp F7  &kp F8 &none                            &kp EQUAL  &kp KP4  &kp KP5  &kp KP6  &kp KP_PLUS  &kp KP_MINUS
+                &kp LG(PG_DN)  &kp F1  &kp F2  &kp F3  &kp F4 &none  &none  &none       &none  &none  &kp RA(F)  &kp KP1  &kp KP2  &kp KP3  &kp G  &kp KP_EQUAL
+                &none  &none  &none  &kp LSHIFT  &none                                  &kp SPACE  &kp RET  &kp RA(SPACE)  &kp KP0  &kp KP_DOT
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+                &kp LG(PG_UP)  &none  &none  &kp LG(UP)  &none  &none                       &kp RA(GRAVE)  &kp RA(N7)  &kp RA(N8)  &kp RA(N9)  &kp RA(N0)   &none
+                &kp LG(RBKT)  &none  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(RIGHT)  &none       &none  &kp RA(N4)  &kp RA(N5)  &kp RA(N6)  &kp RA(MINUS) &none
+                &kp LG(PG_DN)  &none  &none  &none  &none &none  &none  &none               &none  &none  &none  &kp RA(N1)  &kp RA(N2)  &kp RA(N3)  &kp RA(EQUAL)   &none
+                &none  &none  &kp LSHIFT  &kp BSPC   &none                                  &none  &kp RET  &kp SPACE  &kp DEL  &none
+            >;
         };
     };
 };
