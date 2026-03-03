@@ -49,7 +49,7 @@
             bindings = <
                 &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT
                 &lt 3 RBKT  &kp A  &kp S  &kp D  &kp F  &kp G                               &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp SQT
-                &kp LCTRL  &lt 2 Z  &kp X  &kp C  &kp V  &kp B  &kp RBKT  &kp ESC       &mkp MB2  &kp Q  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &mt RCTRL NUHS
+                &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none
                      &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
             >;
 
