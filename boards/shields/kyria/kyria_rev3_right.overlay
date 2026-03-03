@@ -1,0 +1,23 @@
+#include <dt-bindings/zmk/mouse.h>
+
+/ {
+    chosen {
+        zmk,pointing-device = &cirque;
+    };
+};
+
+&i2c0 {
+    status = "okay";
+
+    cirque: cirque@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2a>;
+        label = "CIRQUE";
+
+        tap-enable;
+        gesture-scroll-enable;
+
+        touch-debounce = <100>;
+        tap-threshold = <100>;
+    };
+};
