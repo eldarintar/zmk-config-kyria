@@ -39,6 +39,13 @@
                 &kp SPACE
             >;
         };
+
+        rot_kp: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
     };
 
     keymap {
@@ -54,7 +61,7 @@
                 &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                           &mkp MB1   &kp RET  &lt 1 SPACE  &kp RALT  &mo 4
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp LC(LG(RIGHT)) LC(LG(LEFT)) &inc_dec_kp LG(PG_DN) LG(PG_UP) >;
         };
         layer_1 {
             display-name = "Layer 1";
@@ -65,7 +72,7 @@
                 &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                       &none  &kp RALT  &none  &none  &none
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp LG(PG_DN) LG(PG_UP) &inc_dec_kp PG_UP PG_DN>;
         };
         layer_2 {
             display-name = "Layer 2";
@@ -76,7 +83,7 @@
                 &kp LC(SLASH)  &kp LC(LBKT)  &kp LSHIFT  &kp BSPC  &kp DEL                                  &kp SPACE   &kp RET  &kp RA(SPACE)  &kp KP_N0  &kp KP_DOT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
         layer_3 {
             display-name = "Layer 3";
