@@ -46,11 +46,7 @@
 
         default_layer {
             display-name = "Default Layer";
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
-// |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | LAYER 1 | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
-//                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+
             bindings = <
                 &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT
                 &lt 3 RBKT  &kp A  &kp S  &kp D  &kp F  &kp G                               &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp SQT
@@ -60,18 +56,46 @@
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
-        function_layer {
-            display-name = "Function Layer";
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |       |      |BT_CLR|BTSEL0|BTSEL1|BTSEL2|                                         |      |      |      |      |      |      |
-// |       |      |      |BTSEL3|BTSEL4|      |                                         |      |      |      |      |      |      |
-// |       |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
-//                       |      |      |      |      |      |      |      |      |      |      |      |      |
+        layer_1 {
+            display-name = "Layer 1";
             bindings = <
                 &kp TAB  &kp PG_UP  &kp HOME  &kp UP  &kp END  &kp PG_DN                &kp GRAVE  &kp N7  &kp N8  &kp N9  &kp N0  &macro_1
                 &none  &kp LC(LEFT)  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LC(RIGHT)       &none  &kp N4  &kp N5  &kp N6  &kp MINUS  &macro_0
                 &kp LCTRL  &none  &none  &none  &none  &none  &kp PAUSE_BREAK                 &kp INS  &none  &none  &kp N1  &kp N2  &kp N3  &kp EQUAL  &kp K_APP
                 &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                       &none  &kp RALT  &none  &none  &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+        layer_2 {
+            display-name = "Layer 2";
+            bindings = <
+                &kp KP_NUM  &kp KP_NUM  &kp LC(LA(HOME))  &kp LC(LA(UP))  &kp LC(LA(END))  &none          &kp K_CALC  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MULTIPLY  &kp KP_SLASH
+                &kp KP_NUM  &kp LC(A) &kp LC(LA(LEFT)) ( &kp LC(LA(DOWN))  &kp KP_MULTIPLY(RIGHT) &none      &kp EQUAL &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MINUS
+                &none  &none &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp LA(F4)  &none  &none                   &none  &kp LC(RBKT)  &kp RA(RBKT)  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp G  &kp MINUS
+                &kp LC(SLASH)  &kp LC(LBKT)  &kp LSHIFT  &kp BSPC  &kp DEL                                  &kp SPACE   &kp RET  &kp RA(SPACE)  &kp KP_N0  &kp KP_DOT
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+        layer_3 {
+            display-name = "Layer 3";
+            bindings = <
+                &kp LG(PG_UP)  &kp F9  &kp F10  &kp F11  &kp F12  &none                 &kp MINUS  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MULTIPLY  &kp KP_SLASH
+                &none  &kp F5   &kp F6  &kp F7  &kp F8 &none                            &kp EQUAL  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MINUS
+                &kp LG(PG_DN)  &kp F1  &kp F2  &kp F3  &kp F4 &none  &none  &none       &none  &none  &kp RA(F)  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp G  &kp KP_EQUAL
+                &none  &none  &none  &kp LSHIFT  &none                                  &kp SPACE  &kp RET  &kp RA(SPACE)  &kp KP_N0  &kp KP_DOT
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+        layer_4 {
+            display-name = "Layer 4";
+            bindings = <
+                &kp LG(PG_UP)  &none  &none  &kp LG(UP)  &none  &none                       &kp RA(GRAVE)  &kp RA(N7)  &kp RA(N8)  &kp RA(N9)  &kp RA(N0)   &none
+                &kp LG(RBKT)  &none  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(RIGHT)  &none       &none  &kp RA(N4)  &kp RA(N5)  &kp RA(N6)  &kp RA(MINUS) &none
+                &kp LG(PG_DN)  &none  &none  &none  &none &none  &none  &none               &none  &none  &none  &kp RA(N1)  &kp RA(N2)  &kp RA(N3)  &kp RA(EQUAL)   &none
+                &none  &none  &kp LSHIFT  &kp BSPC   &none                                  &none  &kp RET  &kp SPACE  &kp DEL  &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
