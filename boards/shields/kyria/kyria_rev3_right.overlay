@@ -15,19 +15,20 @@
 };
 
 &i2c0 {
+status = "okay";
+
+cirque_ts: cirque@2a {
+    compatible = "cirque,pinnacle";
+    reg = <0x2a>;
     status = "okay";
 
-    cirque_pinnacle: cirque_pinnacle@2a {
-        compatible = "cirque,pinnacle";
-        reg = <0x2a>;
-        status = "okay";
+    tap-enable;
+    gesture-scroll-enable;
 
-        tap-enable;
-        gesture-scroll-enable;
-
-        touch-debounce = <100>;
-        tap-threshold = <100>;
-
-    };
+    touch-debounce = <100>;
+    tap-threshold = <100>;
 };
+
+};
+
 
