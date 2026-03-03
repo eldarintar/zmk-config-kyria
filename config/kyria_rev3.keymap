@@ -36,16 +36,6 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        combo_mouse {
-            timeout-ms = <150>;
-            key-positions = <0 1>;
-            bindings = <&mkp MB3>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
