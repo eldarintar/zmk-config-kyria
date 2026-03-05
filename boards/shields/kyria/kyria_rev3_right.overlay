@@ -1,13 +1,11 @@
-&i2c0 {
+&i2c1 {
     status = "okay";
 
-    cirque_pinnacle: trackpad@2a {
+    cirque_pinnacle: pinnacle@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
-        status = "okay";
     };
 };
-
 
 / {
     cirque_listener {
