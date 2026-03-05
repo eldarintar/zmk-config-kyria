@@ -1,4 +1,4 @@
-&i2c1 {
+&i2c0 {
     status = "okay";
 
     cirque_pinnacle: pinnacle@2a {
