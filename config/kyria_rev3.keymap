@@ -58,7 +58,7 @@
             bindings = <
                 &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT
                 &lt 3 RBKT  &kp A  &kp S  &kp D  &kp F  &kp G                               &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp SQT
-                &kp LCTRL  &lt 2 Z  &kp X  &kp C  &kp V  &kp B  &kp LG(RBKT)  &kp ESC       &mkp MB2  &studio_unlock  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &mt RCTRL NUHS
+                &kp RCTRL  &lt 2 Z  &kp X  &kp C  &kp V  &kp B  &kp LG(RBKT)  &kp ESC       &mkp MB2  &studio_unlock  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &mt RCTRL NUHS
                 &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                           &mkp MB1   &kp RET  &lt 1 SPACE  &kp RALT  &mo 4
             >;
 
@@ -80,8 +80,8 @@
             bindings = <
                 &kp KP_NUM  &kp KP_NUM  &kp K_STOP2  &kp K_VOL_UP  &kp K_PLAY_PAUSE  &none          &kp K_CALC  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MULTIPLY  &kp KP_SLASH
                 &kp KP_NUM  &kp LC(A) &kp K_PREV &kp K_VOL_DN  &kp K_NEXT &none      &kp EQUAL &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MINUS
-                &none  &none &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp LA(F4)  &none  &none                   &none  &kp LC(RBKT)  &kp RA(RBKT)  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp G  &kp MINUS
-                &kp LC(SLASH)  &kp K_UNDO  &kp LSHIFT  &kp BSPC  &kp DEL                                  &kp SPACE   &kp RET  &kp RA(SPACE)  &kp KP_N0  &kp KP_DOT
+                &none  &none &kp LC(C)  &kp LC(H)  &kp LC(U)  &kp LA(F4)  &none  &none                   &none  &kp LC(RBKT)  &kp RA(RBKT)  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp G  &kp MINUS
+                &kp LC(SLASH)  &kp LC(LBKT)  &kp LSHIFT  &kp BSPC  &kp DEL                                  &kp SPACE   &kp RET  &kp RA(SPACE)  &kp KP_N0  &kp KP_DOT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
