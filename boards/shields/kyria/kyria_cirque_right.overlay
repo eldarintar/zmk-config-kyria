@@ -1,11 +1,13 @@
-&i2c0 {
+&i2c1 {
     status = "okay";
-    pinctrl-0 = <&i2c0_default>;
-    pinctrl-names = "default";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
 
     cirque_pinnacle: pinnacle@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
+        status = "okay";
     };
 };
 
