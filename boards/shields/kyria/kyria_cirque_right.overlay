@@ -1,11 +1,19 @@
-/* Right half Cirque Pinnacle overlay */
-&i2c0 {                   /* Make sure i2c0 exists in nice_nano_v2.dts */
-    status = "okay";
-};
+/dts-v1/;
+/plugin/;
 
-cirque_trackpad: cirque@42 {   /* Label the node so &cirque_trackpad works */
-    compatible = "cirque,pinnacle";
-    reg = <0x42>;               /* I2C address */
-    gpios-int = <&gpio0 15 GPIO_ACTIVE_LOW>; /* INT pin */
-    i2c = <&i2c0>;              /* Must reference a labeled controller */
+/ {
+    compatible = "zmk,shield";
+
+    /* Make sure this I2C controller exists in nice_nano_v2.dts */
+    i2c0: i2c@40003000 {
+        status = "okay";
+    };
+
+    /* Cirque trackpad node */
+    cirque_trackpad: cirque@42 {
+        compatible = "cirque,pinnacle";
+        reg = <0x42>;
+        gpios-int = <&gpio0 15 GPIO_ACTIVE_LOW>; /* adjust to your wiring */
+        i2c = <&i2c0>;
+    };
 };
