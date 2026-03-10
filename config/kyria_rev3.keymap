@@ -47,10 +47,12 @@
             bindings = <&kp>, <&kp>;
         };
 
+        #if IS_RIGHT_HALF
         trackpad: trackpad {
             compatible = "zmk,trackpad";
             trackpad = <&cirque_trackpad>;
         };
+        #endif
 
     };
 
