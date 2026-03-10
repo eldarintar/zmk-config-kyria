@@ -1,7 +1,7 @@
-&i2c1 {
+&i2c0 {
     status = "okay";
-    pinctrl-0 = <&i2c1_default>;
-    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-0 = <NRF_P0_27_SDA I2C>;
+    pinctrl-1 = <NRF_P0_26_SCL I2C>;
     pinctrl-names = "default", "sleep";
 
     cirque_pinnacle: pinnacle@2a {
