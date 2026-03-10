@@ -47,6 +47,11 @@
             bindings = <&kp>, <&kp>;
         };
 
+        trackpad: trackpad {
+            compatible = "zmk,trackpad";
+            trackpad = <&cirque_trackpad>;
+        };
+
     };
 
     keymap {
