@@ -1,9 +1,9 @@
 / {
-    // Cirque Pinnacle trackpad node, attached to existing I2C
+    // Cirque Pinnacle trackpad node
     cirque_trackpad: cirque@42 {
         compatible = "cirque,pinnacle";
-        reg = <0x42>;
-        gpios-int = <&gpio0 15 GPIO_ACTIVE_LOW>;
-        i2c = <&i2c>;
+        reg = <0x42>;                // I2C address
+        gpios-int = <&gpio0 15 GPIO_ACTIVE_LOW>;  // INT pin
+        i2c = <&i2c0>;               // reference existing I2C0 on nice!nano
     };
 };
