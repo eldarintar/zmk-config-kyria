@@ -1,5 +1,7 @@
 &i2c1 {
     status = "okay";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-names = "default";
 
     cirque_pinnacle: pinnacle@2a {
         compatible = "cirque,pinnacle";
