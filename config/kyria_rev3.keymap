@@ -48,9 +48,9 @@
         };
 
         #if IS_RIGHT_HALF
-        trackpad: trackpad {
-            compatible = "zmk,trackpad";
-            trackpad = <&cirque_trackpad>;
+        pointing: pointing {
+            compatible = "zmk,behavior-pointing";
+            #binding-cells = <0>;
         };
         #endif
 

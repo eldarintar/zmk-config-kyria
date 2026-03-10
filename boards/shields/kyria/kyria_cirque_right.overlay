@@ -1,19 +1,11 @@
-/dts-v1/;
-/plugin/;
-
-/ {
-    compatible = "zmk,shield";
-
-    /* Make sure this I2C controller exists in nice_nano_v2.dts */
-    i2c0: i2c@40003000 {
-        status = "okay";
-    };
-
-    /* Cirque trackpad node */
-    cirque_trackpad: cirque@42 {
-        compatible = "cirque,pinnacle";
-        reg = <0x42>;
-        gpios-int = <&gpio0 15 GPIO_ACTIVE_LOW>; /* adjust to your wiring */
-        i2c = <&i2c0>;
+&i2c0 {
+    status = "okay";
+    cirque_pinnacle: cirque_pinnacle@2b {
+        compatible = "zmk,pointing-cirque-pinnacle-i2c";
+        reg = <0x2b>;
+        label = "CIRQUE_PINNACLE";
+        irq-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>;
+        pinctrl-0 = <&i2c0_default>;
+        pinctrl-names = "default";
     };
 };
