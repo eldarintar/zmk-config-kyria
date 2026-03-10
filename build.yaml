@@ -22,17 +22,12 @@ include:
   - board: nice_nano_v2
     shield: kyria_rev3_left
     cmake-args:
-        -DCONFIG_ZMK_STUDIO=y
         -DCONFIG_ZMK_SPLIT=y
         -DCONFIG_ZMK_POINTING=n
-
   - board: nice_nano_v2
     shield: kyria_cirque_right
     cmake-args:
         -DCONFIG_ZMK_SPLIT=y
         -DCONFIG_ZMK_POINTING=y
-        -DSHIELD=kyria_cirque_right
-        -DZMK_EXTRA_MODULES=/__w/zmk-config-kyria
-
   - board: nice_nano_v2
     shield: settings_reset
