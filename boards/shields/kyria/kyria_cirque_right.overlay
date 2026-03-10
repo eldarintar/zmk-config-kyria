@@ -1,8 +1,12 @@
-/* Kyria Rev3 right half with Cirque Pinnacle trackpad */
+/* kyria_cirque_right.overlay - Right half trackpad for Kyria Rev3 */
+
+&i2c0 {
+    status = "okay";
+};
 
 cirque_trackpad: cirque@42 {
     compatible = "cirque,pinnacle";
-    reg = <0x42>;                         /* I2C address */
-    gpios-int = <&gpio0 15 GPIO_ACTIVE_LOW>; /* INT pin on right half */
-    i2c = <&i2c0>;                        /* Reference existing I2C0 controller */
+    reg = <0x42>;                         /* I2C address of trackpad */
+    gpios-int = <&gpio0 15 GPIO_ACTIVE_LOW>; /* INT pin from right half */
+    i2c = <&i2c0>;                        /* Reference labeled I2C controller */
 };
