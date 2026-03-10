@@ -1,34 +1,15 @@
-#include <dt-bindings/zmk/mouse.h>
-/ {
-    chosen {
-        zmk,split-role = "central";
-    };
-};
-
-/ {
-    cirque_pinnacle: cirque_pinnacle {
-        compatible = "cirque,pinnacle";
-        reg = <0x2A>;
-        label = "CIRQUE";
-        status = "okay";
-    };
-};
-
-&i2c0 {
-status = "okay";
-
-cirque_ts: cirque@2a {
-    compatible = "cirque,pinnacle";
-    reg = <0x2a>;
+&i2c1 {
     status = "okay";
 
-    tap-enable;
-    gesture-scroll-enable;
-
-    touch-debounce = <100>;
-    tap-threshold = <100>;
+    cirque_pinnacle: pinnacle@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2a>;
+    };
 };
 
+/ {
+    cirque_listener {
+        compatible = "zmk,input-listener";
+        device = <&cirque_pinnacle>;
+    };
 };
-
-
