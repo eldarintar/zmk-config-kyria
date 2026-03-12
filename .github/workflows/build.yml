@@ -1,13 +1,13 @@
 name: Build ZMK firmware (Kyria + Cirque)
 
 on:
-push:
-branches: [dev]
-workflow_dispatch:
+  push:
+    branches: [dev]
+  workflow_dispatch:
 
 jobs:
-build:
-runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
 steps:
   - name: Checkout config repo
@@ -41,27 +41,25 @@ steps:
 
   - name: Copy config into workspace
     run: |
-      cp -r config zmk-workspace/
-      cp -r modules zmk-workspace/
+      cp -r ../config .
+      cp -r ../modules .
 
   - name: Build Kyria left
     run: |
-      cd zmk-workspace
       west build -s zmk/app -b nice_nano_v2 -- \
         -DZMK_CONFIG=config \
         -DSHIELD=kyria_rev3_left
 
   - name: Build Kyria right (Cirque)
     run: |
-      cd zmk-workspace
       west build -s zmk/app -b nice_nano_v2 -- \
         -DZMK_CONFIG=config \
         -DSHIELD=kyria_cirque_right \
-        -DZMK_EXTRA_MODULES=${{ github.workspace }}/modules/cirque-input-module
+        -DZMK_EXTRA_MODULES=modules/cirque-input-module
 
   - name: Upload firmware
     uses: actions/upload-artifact@v4
     with:
       name: kyria-firmware
       path: |
-        zmk-workspace/build/zephyr/zmk.uf2
+        build/zephyr/zmk.uf2
