@@ -1,12 +1,12 @@
 &i2c0 {
     status = "okay";
     cirque: cirque@2a {
-        compatible = "cirque,input";
+        compatible = "cirque,pinnacle-i2c";
         reg = <0x2a>;
     };
 };
 
-/ {
+&{
     cirque_listener {
         compatible = "zmk,input-listener";
         device = <&cirque>;

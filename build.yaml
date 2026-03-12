@@ -27,6 +27,6 @@ include:
     shield: kyria_cirque_right
     cmake-args:
         -DCONFIG_ZMK_POINTING=y
-        -DZMK_EXTRA_MODULES=${PWD}/modules/cirque_driver
+        -DZMK_EXTRA_MODULES=${PWD}/modules/cirque_driver-module
   - board: nice_nano_v2
     shield: settings_reset
