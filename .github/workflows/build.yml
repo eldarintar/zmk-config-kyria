@@ -9,7 +9,6 @@ jobs:
 build:
 runs-on: ubuntu-latest
 
-```
 steps:
   - name: Checkout config repo
     uses: actions/checkout@v4
@@ -66,4 +65,3 @@ steps:
       name: kyria-firmware
       path: |
         zmk-workspace/build/zephyr/zmk.uf2
-```
