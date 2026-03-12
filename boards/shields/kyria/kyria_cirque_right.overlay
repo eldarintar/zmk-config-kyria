@@ -35,12 +35,15 @@
 
 &i2c0 {
     status = "okay";
-    cirque_pinnacle: cirque_pinnacle@2b {
-        compatible = "zmk,pointing-cirque-pinnacle-i2c";
-        reg = <0x2b>;
-        label = "CIRQUE_PINNACLE";
-        irq-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>;
-        pinctrl-0 = <&i2c0_default>;
-        pinctrl-names = "default";
+    cirque: cirque@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2a>;
+    };
+};
+
+/ {
+    cirque_listener {
+        compatible = "zmk,input-listener";
+        device = <&cirque>;
     };
 };
