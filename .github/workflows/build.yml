@@ -40,8 +40,8 @@ jobs:
 
       - name: Copy config into workspace
         run: |
-          cp -r ../config .
-          cp -r ../modules .
+          cp -r config .
+          cp -r modules .
 
       - name: Build Kyria left
         run: |
