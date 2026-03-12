@@ -14,7 +14,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y python3-pip cmake ninja-build gperf ccache dfu-util device-tree-compiler dtc
+          sudo apt install -y python3-pip cmake ninja-build gperf ccache dfu-util device-tree-compiler build-essential
 
       - name: Install West
         run: pip3 install --upgrade west
