@@ -1,13 +1,33 @@
-name: Build ZMK firmware
+name: Build ZMK firmware Cirque
 
 on:
   push:
-  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   build:
-    uses: urob/zmk/.github/workflows/build-user-config.yml@main
-    with:
-      config_path: config
-      build_matrix_path: build.yaml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip cmake ninja-build gperf ccache dfu-util device-tree-compiler dtc
+
+      - name: Install West
+        run: pip3 install --upgrade west
+
+      - name: Initialize Zephyr & ZMK
+        run: |
+          west init -l zmk
+          west update
+          pip3 install -r zmk/app/requirements.txt
+
+      - name: Build Kyria + Cirque
+        run: |
+          west build -s zmk/app -b nice_nano_v2 \
+            -- -DZMK_CONFIG=config \
+            -DSHIELD=kyria_cirque_right \
+            -DZMK_EXTRA_MODULES=${{ github.workspace }}/modules/cirque-input-module
