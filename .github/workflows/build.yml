@@ -1,33 +1,69 @@
-name: Build ZMK firmware Cirque
+name: Build ZMK firmware (Kyria + Cirque)
 
 on:
-  push:
-    branches: [dev]
-  workflow_dispatch:
+push:
+branches: [dev]
+workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+build:
+runs-on: ubuntu-latest
 
-      - name: Install dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y python3-pip cmake ninja-build gperf ccache dfu-util device-tree-compiler build-essential
+```
+steps:
+  - name: Checkout config repo
+    uses: actions/checkout@v4
 
-      - name: Install West
-        run: pip3 install --upgrade west
+  - name: Install dependencies
+    run: |
+      sudo apt update
+      sudo apt install -y \
+        git \
+        cmake \
+        ninja-build \
+        gperf \
+        ccache \
+        dfu-util \
+        device-tree-compiler \
+        build-essential \
+        python3-pip \
+        python3-setuptools \
+        python3-wheel
 
-      - name: Initialize Zephyr & ZMK
-        run: |
-          west init -l zmk
-          west update
-          pip3 install -r zmk/app/requirements.txt
+  - name: Install West
+    run: pip3 install --upgrade west
 
-      - name: Build Kyria + Cirque
-        run: |
-          west build -s zmk/app -b nice_nano_v2 \
-            -- -DZMK_CONFIG=config \
-            -DSHIELD=kyria_cirque_right \
-            -DZMK_EXTRA_MODULES=${{ github.workspace }}/modules/cirque-input-module
+  - name: Initialize Zephyr workspace
+    run: |
+      west init zmk-workspace
+      cd zmk-workspace
+      west update
+      pip3 install -r zephyr/scripts/requirements.txt
+
+  - name: Copy config into workspace
+    run: |
+      cp -r config zmk-workspace/
+      cp -r modules zmk-workspace/
+
+  - name: Build Kyria left
+    run: |
+      cd zmk-workspace
+      west build -s zmk/app -b nice_nano_v2 -- \
+        -DZMK_CONFIG=config \
+        -DSHIELD=kyria_rev3_left
+
+  - name: Build Kyria right (Cirque)
+    run: |
+      cd zmk-workspace
+      west build -s zmk/app -b nice_nano_v2 -- \
+        -DZMK_CONFIG=config \
+        -DSHIELD=kyria_cirque_right \
+        -DZMK_EXTRA_MODULES=${{ github.workspace }}/modules/cirque-input-module
+
+  - name: Upload firmware
+    uses: actions/upload-artifact@v4
+    with:
+      name: kyria-firmware
+      path: |
+        zmk-workspace/build/zephyr/zmk.uf2
+```
