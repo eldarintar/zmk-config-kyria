@@ -1,7 +1,7 @@
 &i2c0 {
     status = "okay";
     cirque: cirque@2a {
-        compatible = "cirque,pinnacle";
+        compatible = "cirque,input";
         reg = <0x2a>;
     };
 };
