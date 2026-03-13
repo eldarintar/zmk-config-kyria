@@ -44,12 +44,14 @@ jobs:
           cp -r modules zmk-workspace/
 
       - name: Build Kyria left
+        working-directory: zmk-workspace
         run: |
           west build -s zmk/app -b nice_nano_v2 -- \
-              -DZMK_CONFIG=config \
-              -DSHIELD=kyria_rev3_left
+            -DZMK_CONFIG=config \
+            -DSHIELD=kyria_rev3_left
 
       - name: Build Kyria right (Cirque)
+        working-directory: zmk-workspace
         run: |
           west build -s zmk/app -b nice_nano_v2 -- \
               -DZMK_CONFIG=config \
