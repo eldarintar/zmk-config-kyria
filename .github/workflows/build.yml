@@ -1,10 +1,19 @@
-name: Build ZMK firmware
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: cirque
+      url-base: https://github.com/zmkfirmware
 
-on:
-  push:
-  pull_request:
-  workflow_dispatch:
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
 
-jobs:
-  build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    - name: cirque-input-module
+      remote: cirque
+      revision: main
+
+  self:
+    path: con fig
