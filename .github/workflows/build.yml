@@ -1,73 +1,10 @@
-name: Build ZMK firmware (Kyria + Cirque)
+name: Build ZMK firmware
 
 on:
   push:
-    branches: [dev]
+  pull_request:
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout config repo
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y \
-            git \
-            cmake \
-            ninja-build \
-            gperf \
-            ccache \
-            dfu-util \
-            device-tree-compiler \
-            build-essential \
-            python3-pip \
-            python3-setuptools \
-            python3-wheel
-
-      - name: Install west
-        run: pip3 install --upgrade west
-
-      - name: Initialize ZMK workspace
-        run: |
-          west init -m https://github.com/zmkfirmware/zmk \
-            --mr main \
-            --mf app/west.yml \
-            zmk-workspace
-          cd zmk-workspace
-          west update
-          pip3 install -r zephyr/scripts/requirements.txt
-
-      - name: Copy config and modules
-        run: |
-          cp -r config zmk-workspace/
-          cp -r modules zmk-workspace/
-
-      - name: Build Kyria left
-        working-directory: zmk-workspace
-        run: |
-          west build -s zmk/app -b nice_nano_v2 \
-            --build-dir build-left -- \
-            -DZMK_CONFIG=config \
-            -DSHIELD=kyria_rev3_left
-
-      - name: Build Kyria right (Cirque)
-        working-directory: zmk-workspace
-        run: |
-          west build -s zmk/app -b nice_nano_v2 \
-            --build-dir build-right -- \
-            -DZMK_CONFIG=config \
-            -DSHIELD=kyria_cirque_right \
-            -DZMK_EXTRA_MODULES=modules/cirque-input-module
-
-      - name: Upload firmware
-        uses: actions/upload-artifact@v4
-        with:
-          name: kyria-firmware
-          path: |
-            zmk-workspace/build-left/zephyr/zmk.uf2
-            zmk-workspace/build-right/zephyr/zmk.uf2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
