@@ -34,7 +34,10 @@ jobs:
 
       - name: Initialize ZMK workspace
         run: |
-          west init -m https://github.com/zmkfirmware/zmk --mr main zmk-workspace
+          west init -m https://github.com/zmkfirmware/zmk \
+            --mr main \
+            --mf app/west.yml \
+            zmk-workspace
           cd zmk-workspace
           west update
           pip3 install -r zephyr/scripts/requirements.txt
@@ -47,14 +50,16 @@ jobs:
       - name: Build Kyria left
         working-directory: zmk-workspace
         run: |
-          west build -s zmk/app -b nice_nano_v2 --build-dir build-left -- \
+          west build -s zmk/app -b nice_nano_v2 \
+            --build-dir build-left -- \
             -DZMK_CONFIG=config \
             -DSHIELD=kyria_rev3_left
 
       - name: Build Kyria right (Cirque)
         working-directory: zmk-workspace
         run: |
-          west build -s zmk/app -b nice_nano_v2 --build-dir build-right -- \
+          west build -s zmk/app -b nice_nano_v2 \
+            --build-dir build-right -- \
             -DZMK_CONFIG=config \
             -DSHIELD=kyria_cirque_right \
             -DZMK_EXTRA_MODULES=modules/cirque-input-module
@@ -64,4 +69,5 @@ jobs:
         with:
           name: kyria-firmware
           path: |
-            zmk-workspace/build/zephyr/zmk.uf2
+            zmk-workspace/build-left/zephyr/zmk.uf2
+            zmk-workspace/build-right/zephyr/zmk.uf2
