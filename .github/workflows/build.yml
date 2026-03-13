@@ -9,9 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+      # 1. Cloner votre dépôt de configuration clavier
       - name: Checkout config repo
         uses: actions/checkout@v4
 
+      # 2. Installer les dépendances système
       - name: Install dependencies
         run: |
           sudo apt update
@@ -28,21 +31,25 @@ jobs:
               python3-setuptools \
               python3-wheel
 
+      # 3. Installer West (outil Zephyr)
       - name: Install West
         run: pip3 install --upgrade west
 
-      - name: Initialize Zephyr workspace
+      # 4. Initialiser le workspace ZMK directement depuis le repo officiel
+      - name: Initialize ZMK workspace
         run: |
-          west init zmk-workspace
+          west init zmk-workspace https://github.com/zmkfirmware/zmk --mr main
           cd zmk-workspace
           west update
           pip3 install -r zephyr/scripts/requirements.txt
 
-      - name: Copy config into workspace
+      # 5. Copier votre config et modules dans le workspace
+      - name: Copy config and modules
         run: |
           cp -r config zmk-workspace/
           cp -r modules zmk-workspace/
 
+      # 6. Build Kyria left
       - name: Build Kyria left
         working-directory: zmk-workspace
         run: |
@@ -50,17 +57,19 @@ jobs:
             -DZMK_CONFIG=config \
             -DSHIELD=kyria_rev3_left
 
+      # 7. Build Kyria right (Cirque)
       - name: Build Kyria right (Cirque)
         working-directory: zmk-workspace
         run: |
           west build -s zmk/app -b nice_nano_v2 -- \
-              -DZMK_CONFIG=config \
-              -DSHIELD=kyria_cirque_right \
-              -DZMK_EXTRA_MODULES=modules/cirque-input-module
+            -DZMK_CONFIG=config \
+            -DSHIELD=kyria_cirque_right \
+            -DZMK_EXTRA_MODULES=modules/cirque-input-module
 
+      # 8. Upload firmware
       - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
           name: kyria-firmware
           path: |
-            build/zephyr/zmk.uf2
+            zmk-workspace/build/zephyr/zmk.uf2
