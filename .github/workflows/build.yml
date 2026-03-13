@@ -47,14 +47,14 @@ jobs:
       - name: Build Kyria left
         working-directory: zmk-workspace
         run: |
-          west build -s zmk/app -b nice_nano_v2 -- \
+          west build -s zmk/app -b nice_nano_v2 --build-dir build-left -- \
             -DZMK_CONFIG=config \
             -DSHIELD=kyria_rev3_left
 
       - name: Build Kyria right (Cirque)
         working-directory: zmk-workspace
         run: |
-          west build -s zmk/app -b nice_nano_v2 -- \
+          west build -s zmk/app -b nice_nano_v2 --build-dir build-right -- \
             -DZMK_CONFIG=config \
             -DSHIELD=kyria_cirque_right \
             -DZMK_EXTRA_MODULES=modules/cirque-input-module
