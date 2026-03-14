@@ -3,7 +3,7 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: cirque
-      url-base: https://github.com/zmkfirmware
+      url-base: https://github.com/behreajj
 
   projects:
     - name: zmk
@@ -11,9 +11,10 @@ manifest:
       revision: main
       import: app/west.yml
 
-    - name: cirque-input-module
+    - name: zmk-cirque-pinnacle
       remote: cirque
       revision: main
 
   self:
     path: config
+
