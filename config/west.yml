@@ -1,9 +1,9 @@
-manifest:
+ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: cirque
-      url-base: https://github.com/behreajj
+    - name: gammakinematics
+      url-base: https://github.com/GammaKinematics
 
   projects:
     - name: zmk
@@ -11,8 +11,8 @@ manifest:
       revision: main
       import: app/west.yml
 
-    - name: GammaKinematics
-      url-base: https://github.com/GammaKinematics
+    - name: zmk-driver-trackpad
+      remote: gammakinematics
       revision: main
 
   self:
