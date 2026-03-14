@@ -11,10 +11,9 @@ manifest:
       revision: main
       import: app/west.yml
 
-    - name: zmk-cirque-pinnacle
-      remote: cirque
+    - name: GammaKinematics
+      url-base: https://github.com/GammaKinematics
       revision: main
 
   self:
     path: config
-
