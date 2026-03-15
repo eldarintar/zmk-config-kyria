@@ -3,17 +3,17 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: gammakinematics
-      url-base: https://github.com/GammaKinematics
+      url-base: https://github.com/gammakinematics
 
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3
       import: app/west.yml
 
-    - name: zmk-driver-trackpad
+    - name: zmk-cirque-pinnacle
       remote: gammakinematics
       revision: main
 
   self:
-    path: conf ig
+    path: config

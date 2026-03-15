@@ -1,0 +1,10 @@
+&i2c1 {
+    status = "okay";
+
+    cirque_trackpad: cirque@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2a>;
+
+        data-ready-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+    };
+};

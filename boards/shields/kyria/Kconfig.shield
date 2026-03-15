@@ -1,3 +1,0 @@
-config SHIELD_KYRIA_CIRQUE_RIGHT
-    bool
-    select SHIELD_KYRIA_REV3_RIGHT
