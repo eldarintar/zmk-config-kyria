@@ -4,13 +4,13 @@
         #size-cells = <0>;
 
         glidepoint_split: glidepoint_split@0 {
-            compatible = "zmk,input-split";
+            compatible = "cirque,pinnacle";
             reg = <0>;
         };
     };
 
     glidepoint_listener: glidepoint_listener {
-        compatible = "zmk,input-listener";
+        compatible = "cirque,pinnacle";
         status = "disabled";
         device = <&glidepoint_split>;
     };
