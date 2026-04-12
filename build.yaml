@@ -32,4 +32,9 @@ include:
         -DCONFIG_ZMK_POINTING=y
   - board: nice_nano_v2
     shield: settings_reset
+  - name: Archive build
+    uses: actions/upload-artifact@v4
+    with:
+      name: build-dir
+      path: build/
 
