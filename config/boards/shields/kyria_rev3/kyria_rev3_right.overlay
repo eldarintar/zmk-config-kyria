@@ -1,3 +1,9 @@
+#include "kyria_rev3.dtsi"
+
+/ {
+    /* SPI setup si pas déjà présent */
+};
+
 &pro_micro_spi {
     status = "okay";
     cs-gpios = <&pro_micro 19 GPIO_ACTIVE_LOW>;
@@ -8,13 +14,14 @@
         spi-max-frequency = <1000000>;
         status = "okay";
 
-        /* pin DR obligatoire */
         data-ready-gpios = <&pro_micro 5 GPIO_ACTIVE_HIGH>;
 
-        /* tuning */
         sensitivity = "4x";
         sleep-mode-enable;
-        /* optionnel */
-        /* primary-tap-enable; */
     };
+};
+
+/* Lien vers le split */
+&cirque_split {
+    device = <&cirque>;
 };
