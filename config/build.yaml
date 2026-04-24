@@ -19,10 +19,10 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: nice_nano_v2/ble
     shield: kyria_rev3_left
-  - board: nice_nano_v2
+  - board: nice_nano_v2/ble
     shield: kyria_rev3_right
-  - board: nice_nano_v2
+  - board: nice_nano_v2/ble
     shield: settings_reset
 
