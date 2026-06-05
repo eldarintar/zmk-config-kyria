@@ -5,7 +5,7 @@
 
     glidepoint: glidepoint@2a {
         compatible = "cirque,pinnacle";
-        reg = <0x2a>;
+        reg = <0x2b>;
         status = "okay";
         sensitivity = "4x";
         diameter-mm = <40>;
