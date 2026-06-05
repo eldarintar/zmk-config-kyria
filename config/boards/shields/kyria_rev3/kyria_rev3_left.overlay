@@ -1,5 +1,0 @@
-#include "kyria_rev3.dtsi"
-
-&cirque_listener {
-    status = "okay";
-};
