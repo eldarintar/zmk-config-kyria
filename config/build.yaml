@@ -23,6 +23,7 @@ include:
     shield: kyria_rev3_left
   - board: nice_nano_v2/ble
     shield: kyria_rev3_right
+    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
   - board: nice_nano_v2/ble
     shield: settings_reset
 
