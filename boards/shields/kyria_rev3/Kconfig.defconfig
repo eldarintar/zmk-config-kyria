@@ -1,0 +1,11 @@
+if SHIELD_KYRIA_REV3_LEFT
+config ZMK_POINTING
+    default y
+endif
+
+if SHIELD_KYRIA_REV3_RIGHT
+config I2C
+    default y
+config ZMK_POINTING
+    default y
+endif

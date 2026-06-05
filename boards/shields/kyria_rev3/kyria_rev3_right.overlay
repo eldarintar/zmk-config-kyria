@@ -1,0 +1,18 @@
+#include "kyria_rev3.dtsi"
+
+&pro_micro_i2c {
+    status = "okay";
+
+    glidepoint: glidepoint@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2a>;
+        status = "okay";
+        sensitivity = "4x";
+        diameter-mm = <40>;
+        sleep-mode-enable;
+    };
+};
+
+&glidepoint_split {
+    device = <&glidepoint>;
+};
