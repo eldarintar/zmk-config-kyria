@@ -1,7 +1,7 @@
 include:
-  - board: nice_nano/ble
+  - board: nice_nano//zmk
     shield: kyria_rev3_left
-  - board: nice_nano/ble
+  - board: nice_nano//zmk
     shield: kyria_rev3_right
-  - board: nice_nano/ble
+  - board: nice_nano//zmk
     shield: settings_reset
