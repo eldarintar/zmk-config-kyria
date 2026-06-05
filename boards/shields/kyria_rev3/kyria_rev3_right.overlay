@@ -7,11 +7,9 @@
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
         status = "okay";
-
         sensitivity = "4x";
         diameter-mm = <40>;
-        sleep;
-        no-taps;
+        sleep-mode-enable;
     };
 };
 
