@@ -1,8 +1,7 @@
 include:
   - board: nice_nano//zmk
-    shield: kyria_rev3_left
+    shield: kyria_rev3_left kyria_rev3_cirque_left
   - board: nice_nano//zmk
-    shield: kyria_rev3_right
-    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
+    shield: kyria_rev3_right kyria_rev3_cirque_right
   - board: nice_nano//zmk
     shield: settings_reset
