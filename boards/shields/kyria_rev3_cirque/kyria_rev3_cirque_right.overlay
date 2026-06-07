@@ -8,7 +8,6 @@
         reg = <0x2a>;
         status = "okay";
         sensitivity = "4x";
-        diameter-mm = <40>;
         sleep-mode-enable;
     };
 };
