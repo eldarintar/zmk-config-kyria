@@ -1,4 +1,4 @@
-#include "kyria_rev3.dtsi"
+#include "kyria_rev3_cirque.dtsi"
 
 &glidepoint_listener {
     status = "okay";
