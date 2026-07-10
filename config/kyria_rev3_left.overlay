@@ -1,0 +1,24 @@
+/*
+ * Central (LEFT) half.
+ *
+ * Receives the Cirque trackpad input from the right (peripheral) half over the
+ * zmk,input-split channel (reg = 0) and feeds it into the HID mouse report via
+ * an input listener.
+ */
+
+/ {
+	split_inputs {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		glidepoint_split: glidepoint_split@0 {
+			compatible = "zmk,input-split";
+			reg = <0>;
+		};
+	};
+
+	glidepoint_listener {
+		compatible = "zmk,input-listener";
+		device = <&glidepoint_split>;
+	};
+};
