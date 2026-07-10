@@ -32,5 +32,6 @@
 		status = "okay";
 		data-ready-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH)>;
 		invert-y;
+		primary-tap-enable;
 	};
 };
