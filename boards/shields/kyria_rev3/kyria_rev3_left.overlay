@@ -1,5 +1,0 @@
-#include "kyria_rev3.dtsi"
-
-&glidepoint_listener {
-    status = "okay";
-};
