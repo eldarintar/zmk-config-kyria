@@ -50,13 +50,13 @@
         scroll_up: scroll_up {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &msc SCRL_UP>, <&macro_wait_time 20>, <&macro_release &msc SCRL_UP>;
+            bindings = <&macro_press &msc SCRL_UP>, <&macro_wait_time 100>, <&macro_release &msc SCRL_UP>;
         };
 
         scroll_down: scroll_down {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &msc SCRL_DOWN>, <&macro_wait_time 20>, <&macro_release &msc SCRL_DOWN>;
+            bindings = <&macro_press &msc SCRL_DOWN>, <&macro_wait_time 100>, <&macro_release &msc SCRL_DOWN>;
         };
 
         enc_scroll: enc_scroll {
