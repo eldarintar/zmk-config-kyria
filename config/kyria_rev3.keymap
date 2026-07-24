@@ -47,6 +47,13 @@
             bindings = <&kp>, <&kp>;
         };
 
+
+        inc_dec_msc: sensor_rotate_msc {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+        };
+
     };
 
     keymap {
