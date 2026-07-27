@@ -80,7 +80,7 @@
                 &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                           &mkp MB1   &kp RET  &lt 1 SPACE  &kp RALT  &mo 4
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(LG(RIGHT)) LC(LG(LEFT)) &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp LC(LG(RIGHT)) LC(LG(LEFT)) &enc_scroll>;
         };
 
         layer_1 {
