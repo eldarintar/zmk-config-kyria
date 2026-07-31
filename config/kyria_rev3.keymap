@@ -11,7 +11,6 @@
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
-
 #include <dt-bindings/zmk/pointing.h>
 
 / {
@@ -48,10 +47,22 @@
         };
 
 
-        inc_dec_msc: sensor_rotate_msc {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
+        scroll_up: scroll_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &msc SCRL_UP>, <&macro_wait_time 100>, <&macro_release &msc SCRL_UP>;
+        };
+
+        scroll_down: scroll_down {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &msc SCRL_DOWN>, <&macro_wait_time 100>, <&macro_release &msc SCRL_DOWN>;
+        };
+
+        enc_scroll: enc_scroll {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&scroll_down>, <&scroll_up>;
         };
 
     };
@@ -69,7 +80,7 @@
                 &kp LALT  &kp LGUI  &kp LSHIFT  &kp BSPC  &kp DEL                           &mkp MB1   &kp RET  &lt 1 SPACE  &kp RALT  &mo 4
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(LG(RIGHT)) LC(LG(LEFT)) &inc_dec_msc SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&inc_dec_kp LC(LG(RIGHT)) LC(LG(LEFT)) &inc_dec_kp PG_DN PG_UP>;
         };
 
         layer_1 {
