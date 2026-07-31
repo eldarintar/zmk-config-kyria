@@ -1,6 +1,6 @@
 include:
   - board: nice_nano//zmk
-    shield: kyria_rev3_left nice_view_adapter nice_view_gem
+    shield: kyria_rev3_left nice_view_adapter nice_view_kyria
   - board: nice_nano//zmk
     shield: kyria_rev3_right
   - board: nice_nano//zmk
